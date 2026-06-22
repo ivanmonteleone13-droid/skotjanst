@@ -1,25 +1,21 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import { business } from "@/lib/business";
 
 export default function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [sent, setSent] = useState(false);
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setSubmitted(true);
-  }
-
-  if (submitted) {
+  if (sent) {
     return (
-      <div
-        className="rounded-2xl border border-amber-200 bg-amber-50 p-8 text-center"
-        role="status"
-      >
-        <p className="text-lg font-semibold text-[#3D2914]">Tack för ditt meddelande!</p>
-        <p className="mt-2 text-sm text-[#5C4033]/70">
-          Detta är en demo-webbplats. Ring {business.phone} för att nå oss direkt.
+      <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-8 text-center">
+        <p className="text-lg font-semibold text-emerald-900">Tack för ditt meddelande!</p>
+        <p className="mt-2 text-sm text-[var(--primary)]/70">
+          Vi återkommer så snart vi kan. För snabbast svar, ring{" "}
+          <a href={business.phoneLink} className="font-semibold underline">
+            {business.phone}
+          </a>
+          .
         </p>
       </div>
     );
@@ -27,69 +23,69 @@ export default function ContactForm() {
 
   return (
     <form
-      onSubmit={handleSubmit}
-      className="space-y-5 rounded-2xl border border-[#5C4033]/10 bg-white p-6 shadow-sm sm:p-8"
-      aria-label="Kontaktformulär"
+      onSubmit={(e) => {
+        e.preventDefault();
+        setSent(true);
+      }}
+      className="space-y-5 rounded-2xl border border-[var(--primary)]/10 bg-white p-6 shadow-sm sm:p-8"
     >
-      <div className="grid gap-5 sm:grid-cols-2">
-        <div>
-          <label htmlFor="name" className="mb-2 block text-sm font-medium text-[#3D2914]">
-            Namn
-          </label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            required
-            autoComplete="name"
-            className="w-full rounded-xl border border-amber-200 px-4 py-3 text-sm outline-none ring-[#5C4033] focus:ring-2"
-          />
-        </div>
-        <div>
-          <label htmlFor="email" className="mb-2 block text-sm font-medium text-[#3D2914]">
-            E-post
-          </label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            autoComplete="email"
-            className="w-full rounded-xl border border-amber-200 px-4 py-3 text-sm outline-none ring-[#5C4033] focus:ring-2"
-          />
-        </div>
-      </div>
-
+      <p className="text-sm text-[var(--primary)]/60">
+        Ingen e-post? Ring oss direkt på{" "}
+        <a href={business.phoneLink} className="font-semibold text-[var(--primary)] hover:underline">
+          {business.phone}
+        </a>
+        .
+      </p>
       <div>
-        <label htmlFor="phone" className="mb-2 block text-sm font-medium text-[#3D2914]">
-          Telefon
+        <label htmlFor="name" className="mb-1 block text-sm font-medium text-[var(--primary)]">
+          Namn
+        </label>
+        <input
+          id="name"
+          name="name"
+          required
+          className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none ring-[var(--primary)] focus:ring-2"
+        />
+      </div>
+      <div>
+        <label htmlFor="phone" className="mb-1 block text-sm font-medium text-[var(--primary)]">
+          Telefon <span className="text-[var(--secondary)]">*</span>
         </label>
         <input
           id="phone"
           name="phone"
           type="tel"
-          autoComplete="tel"
-          className="w-full rounded-xl border border-amber-200 px-4 py-3 text-sm outline-none ring-[#5C4033] focus:ring-2"
+          required
+          className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none ring-[var(--primary)] focus:ring-2"
         />
       </div>
-
       <div>
-        <label htmlFor="message" className="mb-2 block text-sm font-medium text-[#3D2914]">
+        <label htmlFor="email" className="mb-1 block text-sm font-medium text-[var(--primary)]">
+          E-post <span className="font-normal text-[var(--primary)]/50">(valfritt)</span>
+        </label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none ring-[var(--primary)] focus:ring-2"
+        />
+      </div>
+      <div>
+        <label htmlFor="message" className="mb-1 block text-sm font-medium text-[var(--primary)]">
           Meddelande
         </label>
         <textarea
           id="message"
           name="message"
-          rows={5}
+          rows={4}
           required
-          className="w-full rounded-xl border border-amber-200 px-4 py-3 text-sm outline-none ring-[#5C4033] focus:ring-2"
-          placeholder="Beskriv vad du behöver hjälp med..."
+          placeholder="T.ex. önskad tid, typ av klippning..."
+          className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none ring-[var(--primary)] focus:ring-2"
         />
       </div>
-
       <button
         type="submit"
-        className="w-full rounded-full bg-[#5C4033] px-8 py-4 text-sm font-semibold text-white transition hover:bg-[#3D2914] sm:w-auto"
+        className="w-full rounded-full bg-[var(--primary)] px-8 py-4 text-sm font-semibold text-white transition hover:bg-[var(--dark)] sm:w-auto"
       >
         Skicka meddelande
       </button>
