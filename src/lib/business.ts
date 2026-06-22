@@ -15,6 +15,9 @@ export const business = {
   emailLink: "mailto:Info@skotjanst.nu" as string | null,
   bookingUrl: "tel:+4618137554",
   bookingLabel: "Ring oss",
+  websiteUrl: "https://skotjanst.nu/" as string | null,
+  heroImage: "/images/hero.jpg",
+  aboutImage: "/images/gallery-5.jpg",
   facebookUrl: null as string | null,
   instagramUrl: null as string | null,
   owner: "Skotjänst Uppsala",
@@ -35,10 +38,10 @@ export const business = {
     ],
   },
   trustBadges: [
-    { label: "5.0 på Bokadirekt", icon: "star" },
-    { label: "2+ omdömen", icon: "reviews" },
-    { label: "Uppsala centrum", icon: "location" },
-    { label: "👞 Cobbler", icon: "student" },
+    { label: "5.0 på Reco.se", icon: "star" },
+    { label: "2 omdömen", icon: "reviews" },
+    { label: "Stora Torget", icon: "location" },
+    { label: "👞 Skomakeri", icon: "student" },
   ],
   usps: [
     {
@@ -120,25 +123,29 @@ export const business = {
     },
   ],
   gallery: [
-    { id: 1, label: "Styling", before: "from-[#3D2914] to-[#5C4033]", after: "from-[#C9A227]/40 to-[#5C4033]" },
-    { id: 2, label: "Behandling", before: "from-[#5C4033] to-[#3D2914]", after: "from-[#C9A227]/30 to-[#3D2914]" },
-    { id: 3, label: "Resultat", before: "from-[#3D2914] to-[#5C4033]/80", after: "from-[#C9A227] to-[#5C4033]/50" },
-    { id: 4, label: "Salong", before: "from-[#5C4033]/90 to-[#3D2914]", after: "from-[#C9A227]/50 to-[#C9A227]" },
-    { id: 5, label: "Detalj", before: "from-[#3D2914] to-[#C9A227]/20", after: "from-[#5C4033] to-[#C9A227]/35" },
-    { id: 6, label: "Atmosfär", before: "from-[#5C4033] to-[#C9A227]/25", after: "from-[#C9A227]/60 to-[#3D2914]" },
+    { id: 1, label: "Skomakeri på torget", image: "/images/gallery-1.jpg" },
+    { id: 2, label: "Hantverk & reparation", image: "/images/gallery-2.jpg" },
+    { id: 3, label: "Verkstad", image: "/images/gallery-3.jpg" },
+    { id: 4, label: "Butik & service", image: "/images/gallery-4.jpg" },
+    { id: 5, label: "Skovård", image: "/images/gallery-5.jpg" },
+    { id: 6, label: "Detaljarbete", image: "/images/gallery-6.jpg" },
   ],
   testimonials: [
     {
-      text: "Mycket nöjd – varmt och professionellt bemötande. Nyckeln passade perfekt och skorna kom tillbaka i fantastiskt skick.",
-      author: "Kundrecension",
-      source: "Reco.se (offentligt omdöme, parafraserat)",
+      text: "Mycket nöjd med besöket hos Lerums skomakeriservice och dom nya ägarna Jag fick ett varmt, trevligt och professionellt bemötande från början till slut. Nyckeln som gjordes passade perfekt, och mina skor som lämnades in för omklackning kom tillbaka i fantastiskt skick – otroligt väl rengjorda, superputsade och med ett mycket väl utfört hantverk. Det märks att de är noggranna, kunniga och stolta över sitt arbete. En kombination av genuint hantverk och riktigt god service – rekommenderas varmt",
+      author: "Eva Madeleine Jeanette B",
+      source: "Reco.se",
+      sourceUrl: "https://www.reco.se/r/3238682",
       rating: 5,
+      date: "2026-05-26",
     },
     {
-      text: "Kunde kopiera vår nyckel direkt och priset var skäligt. Fantastiskt trevliga också.",
-      author: "Kundrecension",
-      source: "Reco.se (offentligt omdöme, parafraserat)",
+      text: "De kunde kopiera vår nyckel anabnt och priset var trevligt skäligt. Fantastiskt trevliga också.",
+      author: "Victoria W",
+      source: "Reco.se",
+      sourceUrl: "https://www.reco.se/r/2805358",
       rating: 5,
+      date: "2025-03-05",
     },
   ],
   about: {
@@ -154,11 +161,11 @@ export const business = {
     },
     {
       question: "Hur bokar jag tid hos Skotjänst?",
-      answer: "Boka via Bokadirekt eller ring 018-13 75 54.",
+      answer: "Ring 018-13 75 54 eller besök oss på Stora Torget 1A.",
     },
     {
       question: "Vad säger kunder om Skotjänst?",
-      answer: "Vi har 5.0 i snittbetyg baserat på 2+ recensioner.",
+      answer: "Vi har 5.0 i snittbetyg baserat på 2 omdömen på Reco.se.",
     },
     {
       question: "Vilka öppettider har ni?",
@@ -166,7 +173,7 @@ export const business = {
     },
     {
       question: "Kan jag avboka min tid?",
-      answer: "Ja, via Bokadirekt kan du hantera din bokning.",
+      answer: "Ja, kontakta oss så hjälper vi dig.",
     },
     {
       question: "Hur lång tid tar en klackning?",

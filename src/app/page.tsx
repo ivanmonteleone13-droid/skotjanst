@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import CraftStory from "@/components/CraftStory";
+import Gallery from "@/components/Gallery";
 import ServicesSection from "@/components/ServicesSection";
 import Process from "@/components/Process";
 import ReviewsCarousel from "@/components/ReviewsCarousel";
@@ -12,6 +13,7 @@ export default function HomePage() {
     <>
       <Hero />
       <CraftStory />
+      <Gallery />
       <ServicesSection />
       <Process />
       <ReviewsCarousel />

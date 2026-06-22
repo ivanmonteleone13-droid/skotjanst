@@ -1,6 +1,8 @@
 import { business } from "@/lib/business";
 
 export default function Hero() {
+  const heroImage = "heroImage" in business ? business.heroImage : null;
+
   return (
     <section id="hem" className="relative border-b-4 border-[var(--secondary)] bg-[var(--accent)]">
       <div className="mx-auto flex max-w-7xl flex-col lg:flex-row">
@@ -15,12 +17,28 @@ export default function Hero() {
             <a href="#tjanster" className="border border-[var(--accent)]/40 px-8 py-3 font-semibold">Våra tjänster</a>
           </div>
         </div>
-        <div className="flex flex-1 items-center justify-center bg-[var(--dark)] p-12">
-          <div className="text-center">
-            <span className="text-9xl" aria-hidden>👞</span>
-            <p className="mt-4 font-[family-name:var(--font-heading)] text-2xl text-[var(--secondary)]">{business.address.street}</p>
-            <p className="text-sm text-white/60">{business.address.city}</p>
-          </div>
+        <div className="relative flex flex-1 min-h-[320px] items-stretch bg-[var(--dark)] lg:min-h-[480px]">
+          {heroImage ? (
+            <>
+              <img
+                src={heroImage}
+                alt={`${business.name} — skomakeri på ${business.address.street}, ${business.address.city}`}
+                className="absolute inset-0 h-full w-full object-cover"
+                fetchPriority="high"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--dark)]/80 via-transparent to-[var(--dark)]/20" aria-hidden />
+              <div className="relative z-10 mt-auto w-full p-8 text-center lg:p-12">
+                <p className="font-[family-name:var(--font-heading)] text-2xl text-[var(--secondary)]">{business.address.street}</p>
+                <p className="text-sm text-white/70">{business.address.city}</p>
+              </div>
+            </>
+          ) : (
+            <div className="flex flex-1 flex-col items-center justify-center p-12 text-center">
+              <span className="text-9xl" aria-hidden>👞</span>
+              <p className="mt-4 font-[family-name:var(--font-heading)] text-2xl text-[var(--secondary)]">{business.address.street}</p>
+              <p className="text-sm text-white/60">{business.address.city}</p>
+            </div>
+          )}
         </div>
       </div>
     </section>

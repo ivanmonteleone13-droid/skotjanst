@@ -29,7 +29,11 @@ function ReviewCard({
         &ldquo;{review.text}&rdquo;
       </blockquote>
       <figcaption className="mt-4 text-xs text-white/60">
-        — {review.author} · {review.source}
+        — {review.author} ·{" "}
+        <a href={review.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-white">
+          {review.source}
+        </a>
+        {review.date ? ` · ${review.date}` : ""}
       </figcaption>
     </figure>
   );
@@ -55,8 +59,7 @@ export default function ReviewsCarousel() {
           </p>
           <h2 className="mt-2 text-3xl font-bold sm:text-4xl">Vad våra kunder säger</h2>
           <p className="mt-4 text-white/80">
-            {business.rating}/5 baserat på {business.reviewCount}+ recensioner — utdrag
-            parafraserade från Bokadirekt.
+            {business.rating}/5 baserat på {business.reviewCount} recensioner — ordagrant utdrag från Reco.se.
           </p>
           <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-[var(--secondary)]/20 px-4 py-2 text-sm font-semibold text-[var(--secondary)]">
             <span aria-hidden>★</span>
@@ -119,13 +122,9 @@ export default function ReviewsCarousel() {
         </div>
 
         <div className="mt-10 text-center">
-          <a
-            href={business.bookingUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-full bg-[var(--secondary)] px-8 py-3 text-sm font-semibold text-[var(--dark)] transition hover:bg-[var(--secondary)]"
-          >
-            Bli nästa nöjda kund — boka tid
+          <a href="https://www.reco.se/skotjanst-uppsala-stora-torget-1a" target="_blank" rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-full bg-[var(--secondary)] px-8 py-3 text-sm font-semibold text-[var(--dark)] transition hover:bg-[var(--secondary)]">
+            Läs fler omdömen på Reco.se
           </a>
         </div>
       </div>
