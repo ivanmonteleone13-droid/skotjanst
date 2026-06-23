@@ -16,6 +16,7 @@ export const business = {
   bookingUrl: "tel:+4618137554",
   bookingLabel: "Ring oss",
   websiteUrl: "https://skotjanst.nu/" as string | null,
+  logoImage: "/images/logo.jpg" as string | null,
   heroImage: "/images/hero.jpg",
   aboutImage: "/images/gallery-5.jpg",
   facebookUrl: null as string | null,
